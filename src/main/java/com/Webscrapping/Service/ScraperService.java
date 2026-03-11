@@ -15,7 +15,9 @@ import com.Webscrapping.Model.ScrapResponse;
 public class ScraperService {
 
     public static ScrapResponse webScrapResponse(String url) throws IOException {
-        Document docs = Jsoup.connect(url).get();
+        Document docs = Jsoup.connect(url).
+                userAgent("Mozilla/5.0")
+                .timeout(5000).get();
 
         List<String> images = new ArrayList<>();
         List<String> videos = new ArrayList<>();
